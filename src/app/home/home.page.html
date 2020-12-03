@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar id="header" color="secondary">
+    <ion-title> Workout Logger </ion-title>
+
+  <ion-buttons
+      slot="end"
+      [routerLink]="'/add-workout/'"
+      routerDirection="forward"
+    >
+      <ion-icon
+        id="addWorkout"
+        name="add-circle-outline"
+        icon="only"
+      ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  >
+  <!-- routerLink="/workout-details/{{workout.id}}"
+  routerDirection="forward"-->
+
+  <ion-card *ngFor="let workout of workouts; let i=index"
+  >
+    <ion-card-header id="header">
+      
+      <ion-card-subtitle>{{workout.date}}</ion-card-subtitle>
+      <ion-card-title>{{workout.type}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon *ngIf="workout.type == 'Bike'" name="bicycle-outline"></ion-icon>
+      <ion-icon *ngIf="workout.type == 'Run'" name="walk-outline"></ion-icon>
+      <ion-icon *ngIf="workout.type == 'Weights'" name="barbell-outline"></ion-icon>
+      <ion-icon *ngIf="workout.type == 'Yoga'" name="accessibility-outline"></ion-icon>
+
+      <div id="info">
+      <p><strong> Length:</strong> {{workout.length}} mins</p>
+      <p><strong>Heart Rate:</strong> {{workout.hr}} bpm</p>
+      <p><strong>Calories Burned:</strong> {{workout.calories}}</p>
+      <p *ngIf="workout.type == 'Bike'"><strong>Average Speed:</strong> {{workout.speed}} mph</p>
+      <p *ngIf="workout.type == 'Run'"><strong>Average Speed: </strong> {{workout.speed}} mph</p>
+     
+      <p *ngIf="workout.type == 'Run'"><strong>Distance:</strong> {{workout.distance}} mi </p>
+      <p *ngIf="workout.type == 'Bike'"><strong>Distance:</strong> {{workout.distance}} mi </p>
+      
+   
+      <p *ngIf="workout.type == 'Weights'" ><strong>Sets:</strong> {{workout.sets}}</p>
+      <p *ngIf="workout.type == 'Weights'"><strong>Reps: </strong> {{workout.reps}}</p>
+      <p *ngIf="workout.type == 'Weights'"><strong>Weight: </strong> {{workout.reps}} lbs</p>
+
+      <ion-buttons>
+        <ion-button routerLink="/update-workout/{{workout.id}}"
+        routerDirection="forward" 
+          color="dark">Update</ion-button>
+        <ion-button  (click)="delete(workout.id)" color="danger">Delete</ion-button>
+      </ion-buttons>
+   
+    </div>
+      
+
+    </ion-card-content>
+
+  </ion-card>
+  <h1 >Add more workouts!</h1>
+
+</ion-content>
+

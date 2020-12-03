@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar id="header" color="secondary">
+    
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="home"
+    ></ion-back-button>
+  </ion-buttons>
+    <ion-title> Add A Workout </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="create(workout)">
+    <!--Type of Workout Selector-->
+    <ion-item>
+      <ion-label position="floating">Workout Type</ion-label>
+      <ion-select [(ngModel)]="workout.type" name="type">
+        <ion-select-option>Bike</ion-select-option>
+        <ion-select-option>Run</ion-select-option>
+        <ion-select-option>Weights</ion-select-option>
+        <ion-select-option>Yoga</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!--General Inputs-->
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-input type="date" [(ngModel)]="workout.date" name="date"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Length</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.length" name="length"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Average Heart Rate</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.hr" name="hr"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Calories Burned</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.calories" name="calories"></ion-input>
+    </ion-item>
+  
+
+    <!--Run Inputs-->
+    <ion-item *ngIf="workout.type == 'Run' " >
+      <ion-label position="floating">Distance</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.distance" name="distance"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="workout.type == 'Run' " >
+      <ion-label position="floating">Speed</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.speed" name="speed"></ion-input>
+    </ion-item>
+
+    <!--Bike Inputs-->
+    <ion-item *ngIf="workout.type == 'Bike' " >
+      <ion-label position="floating">Distance</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.distance" name="distance"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="workout.type == 'Bike' " >
+      <ion-label position="floating">Speed</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.speed" name="speed"></ion-input>
+    </ion-item>
+ 
+    <!--Weight Inputs-->
+    <ion-item *ngIf="workout.type == 'Weights'" >
+      <ion-label position="floating">Sets</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.sets" name="sets"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="workout.type == 'Weights'" >
+      <ion-label position="floating">Reps</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.reps" name="reps"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="workout.type == 'Weights'" >
+      <ion-label position="floating">Weight</ion-label>
+      <ion-input type="number" [(ngModel)]="workout.weight" name="weight"></ion-input>
+    </ion-item>
+    <ion-button  routerLink="/"
+    routerDirection="backward" type="submit" color="dark" expand="block">Add Workout</ion-button>
+  </form>
+
+</ion-content>
