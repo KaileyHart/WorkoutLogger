@@ -1,7 +1,0 @@
-{
-  "name": "N322FinalCRUDApp",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
