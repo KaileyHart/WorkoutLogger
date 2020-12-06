@@ -4,6 +4,5 @@ This website was created using Ionic, Angular, and Firebase. It is an progressiv
 
 [Web 4 Link](https://in-info-web4.informatics.iupui.edu/~kalyhart/WorkoutLogger/home)
 
-<br/>
 [Firebase Link](https://workoutloggern322final.web.app/home)
 
